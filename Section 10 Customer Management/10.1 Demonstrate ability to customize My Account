@@ -118,7 +118,7 @@ So, in this example, we are adding a new column called `Is Virtual` and here is 
             <?php foreach ($_orders as $_order): ?>
                 <tr>
                     <td data-th="<?= $block->escapeHtml(__('Order #')) ?>" class="col id"><?= /* @escapeNotVerified */ $_order->getRealOrderId() ?></td>
-                    <td data-th="<?= $block->escapeHtml(__('Is Virtual: ')) ?>" class="col id"><?= /* @escapeNotVerified */ $_order->getIsVirtual()?"Yes":"No" ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Is Virtual')) ?>" class="col id"><?= /* @escapeNotVerified */ $_order->getIsVirtual()?"Yes":"No" ?></td>
                     <td data-th="<?= $block->escapeHtml(__('Date')) ?>" class="col date"><?= /* @escapeNotVerified */ $block->formatDate($_order->getCreatedAt()) ?></td>
                     <?php $extra = $block->getChildBlock('extra.container'); ?>
                     <?php if ($extra): ?>
