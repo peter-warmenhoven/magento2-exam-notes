@@ -1,1 +1,156 @@
 ## 10.1 Demonstrate ability to customize My Account
+
+Describe how to customize the “My Account” section. 
+
+*How do you add a menu item?*
+- Create A theme or use an existing one
+- Create a folder in the theme Magento_Customer
+- Create a folder inside the theme Magento_Customer called layout 
+- Create a file inside the theme/Magento_Customer/layout/customer_account.xml
+- Add similar xml
+```xml
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="customer_account_navigation">
+            <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-address-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Russell Special</argument>
+                    <argument name="path" xsi:type="string">special/link</argument>
+                    <argument name="sortOrder" xsi:type="number">165</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+```
+
+*How would you customize the “Order History” page?*
+Order History comes from Magento module magento-sales.  The template is actually defined in the block, not in xml.
+The Layout xml found here vendor/magento/module-sales/view/frontend/layout/sales_order_history.xml shows that the Block responsible for this is Magento\Sales\Block\Order\History
+When you review that file, you see this:
+```php
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+namespace Magento\Sales\Block\Order;
+
+use \Magento\Framework\App\ObjectManager;
+use \Magento\Sales\Model\ResourceModel\Order\CollectionFactoryInterface;
+
+/**
+ * Sales order history block
+ *
+ * @api
+ * @since 100.0.2
+ */
+class History extends \Magento\Framework\View\Element\Template
+{
+    /**
+     * @var string
+     */
+    protected $_template = 'Magento_Sales::order/history.phtml';
+    
+ ... code continues ...
+
+```
+Now we know where and what templage is being used. To edit this and add a new column we need to understand how the tempates are structured.
+For times like this where we are over riding templates in app/design/ our folder structure looks like this
+app/design/frontend/<Namespace>/<theme_name>/Magento_Sales/templates/order/history.phtml
+
+From the official devdoc: https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html#template-convention
+Template location
+Templates are stored in the following locations:
+
+Module templates: <module_dir>/view/frontend/templates/<path_to_templates>
+Theme templates: <theme_dir>/<Namespace>_<Module>/templates/<path_to_templates>
+<path_to_templates> indicates zero or more directory levels.
+
+Examples:
+
+app/code/Magento/Catalog/view/frontend/templates/product/widget/new/content/new_grid.phtml
+app/code/Magento/Checkout/view/frontend/templates/cart.phtml
+
+
+Our new template for my example lives here.  My Namespace is RussellAlbin and the theme is called special.
+
+    app/design/frontend/RussellAlbin/special/Magento_Sales/templates/order/history.phtml
+
+So, in this example, we are adding a new column called `Is Virtual` and here is our new updated template:
+
+```php
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_orders = $block->getOrders(); ?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)): ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?= /* @escapeNotVerified */ __('Orders') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col id"><?= /* @escapeNotVerified */ __('Order #') ?></th>
+                <th scope="col" class="col id"><?= /* @escapeNotVerified */ __('Is Virtual') ?></th>
+                <th scope="col" class="col date"><?= /* @escapeNotVerified */ __('Date') ?></th>
+                <?= /* @noEscape */ $block->getChildHtml('extra.column.header') ?>
+                <th scope="col" class="col shipping"><?= /* @escapeNotVerified */ __('Ship To') ?></th>
+                <th scope="col" class="col total"><?= /* @escapeNotVerified */ __('Order Total') ?></th>
+                <th scope="col" class="col status"><?= /* @escapeNotVerified */ __('Status') ?></th>
+                <th scope="col" class="col actions"><?= /* @escapeNotVerified */ __('Action') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($_orders as $_order): ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Order #')) ?>" class="col id"><?= /* @escapeNotVerified */ $_order->getRealOrderId() ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Is Virtual: ')) ?>" class="col id"><?= /* @escapeNotVerified */ $_order->getIsVirtual()?"Yes":"No" ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Date')) ?>" class="col date"><?= /* @escapeNotVerified */ $block->formatDate($_order->getCreatedAt()) ?></td>
+                    <?php $extra = $block->getChildBlock('extra.container'); ?>
+                    <?php if ($extra): ?>
+                        <?php $extra->setOrder($_order); ?>
+                        <?= /* @noEscape */ $extra->getChildHtml() ?>
+                    <?php endif; ?>
+                    <td data-th="<?= $block->escapeHtml(__('Ship To')) ?>" class="col shipping"><?= $_order->getShippingAddress() ? $block->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Order Total')) ?>" class="col total"><?= /* @escapeNotVerified */ $_order->formatPrice($_order->getGrandTotal()) ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Status')) ?>" class="col status"><?= /* @escapeNotVerified */ $_order->getStatusLabel() ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                        <a href="<?= /* @escapeNotVerified */ $block->getViewUrl($_order) ?>" class="action view">
+                            <span><?= /* @escapeNotVerified */ __('View Order') ?></span>
+                        </a>
+                        <?php if ($this->helper('Magento\Sales\Helper\Reorder')->canReorder($_order->getEntityId())) : ?>
+                            <a href="#" data-post='<?php /* @escapeNotVerified */ echo
+                            $this->helper(\Magento\Framework\Data\Helper\PostHelper::class)
+                                ->getPostData($block->getReorderUrl($_order))
+                            ?>' class="action order">
+                                <span><?= /* @escapeNotVerified */ __('Reorder') ?></span>
+                            </a>
+                        <?php endif ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?= /* @escapeNotVerified */ __('You have placed no orders.') ?></span></div>
+<?php endif ?>
+
+```
