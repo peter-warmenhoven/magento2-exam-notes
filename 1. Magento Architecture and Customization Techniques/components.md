@@ -39,8 +39,8 @@ Dutch (Netherlands) language
 Portuguese (Brazil) language
 ### language-zh_hans_cn 
 Chinese (China) language
-### magento-composer-installer 
-#### Magento Composer Installer
+### magento-composer-installer
+
   This is a fork of the [Magento Composer Installer](https://github.com/magento-hackathon/magento-composer-installer) repo that provides support for Magento 2 components (modules, themes, language packages, libraries and components).
 ##### Usage
 In the component's `composer.json`, specify:
@@ -359,15 +359,17 @@ to generate bundle product information.
 ### module-bundle-import-export
 Magento_BundleImportExport module implements Bundle products import/export functionality.
 This module is designed to extend existing functionality of Magento_CatalogImportExport module by adding new product type.
+
 ### module-bundle-import-export-staging
-<h2>Magento_BundleImportExportStaging module</h2>
-##### Overview
 The Magento_BundleImportExportStaging module is a part of the staging functionality in Magento EE. It extends the Magento_BundleImportExport module functionality to be used in staging mode.
+
 ##### Implementation Details
 The Magento_BundleImportExportStaging module:
  * adds plugin on `\Magento\BundleImportExport\Model\Import\Product\Type\Bundle\RelationsDataSaver` to add sequence information to bundle product relations (options, selections, etc.)
+
 ##### Dependencies
 You can find the list of modules the Magento_BundleImportExportStaging module depends on in the `require` section of the `composer.json` file located in the same directory as this `README.md` file.
+
 ##### Extension Points
 The Magento_BundleImportExportStaging module does not provide any specific extension points.
 
@@ -1715,7 +1717,6 @@ Magento\Version Allows to get Magento version and edition by HTTP GET request
 
 ### module-versions-cms 
 The Versions CMS module adds a hierarchy feature for CMS pages.
-
 The hierarchy feature organizes CMS pages as a hierarchy tree that allows parent/child relationships between pages.
 
 ### module-visual-merchandiser 
@@ -1786,11 +1787,15 @@ The Magento_Worldpay module implements the integration with the Worldpay payment
 
 ### sample-data-media 
 Sample Media Data...
+
 ### theme-adminhtml-backend 
 Magento 2 backend theme
+
 ### theme-frontend-blank
 Magento Blank theme
+
 ### theme-frontend-luma 
 Magento Luma child of blank
+
 ### zendframework1
 Contains Zend Framework 1 plus performance improvements and bug fixes.
