@@ -924,184 +924,873 @@ GraphQL services and resolves request data based on the generated schema. It als
 for the client to read.
 
 ### module-grouped-import-export 
-### module-grouped-product 
-### module-grouped-product-graph-ql 
-### module-grouped-product-sample-data 
+### module-grouped-product
+Magento_GroupedProduct module provides ability to offer several standalone products for sale as a group on the same Product Detail page.
+It can offer variations of a product, or group them by season or theme to create a coordinated set.
+Products can be purchased separately or as a set.
+Each product purchased appears in the Shopping Cart as a separate item.
+This module extends the existing functionality of Magento_Catalog module by adding new product type.
+
+### module-grouped-product-graph-ql
+**GroupedProductGraphQl** provides type and resolver information for the GraphQl module
+to generate grouped product information.
+
+### module-grouped-product-sample-data
+Magento_GroupedProductSampleData module consists of installation scripts and fixtures.
 ### module-grouped-product-staging 
-### module-grouped-requisition-list 
-### module-grouped-shared-catalog 
-### module-import-export 
-### module-indexer 
-### module-instant-purchase 
-### module-integration 
+The Magento_GroupedProductStaging module is a part of the staging functionality in Magento EE. It enables you to stage products assigned to grouped product.
+
+##### Implementation details
+
+The Magento_GroupedProductStaging module extends functionality of the Magento_GroupedProduct to be used in staging. It adds Grouped Products field set to the Schedule Update form of a product.
+### module-grouped-requisition-list
+The Magento_GroupedRequisitionList module enables grouped products to be displayed in a requisition list in an B2B environment. This module extends Magento_RequisitionList and Magento_Grouped modules.
+
+The Magento_GroupedRequisitionList module provides the following features:
+
+* Display grouped products in a requisition list.
+
+* Add grouped products to cart from a requisition list. 
+
+* Disable ability to change quantity of grouped products in a requisition list. 
+ 
+### module-grouped-shared-catalog
+The Magento_GroupedSharedCatalog module enables grouped products to be added to a shared catalog in an B2B environment. This module extends Magento_SharedCatalog and Magento_Grouped modules.
+
+The Magento_GroupedSharedCatalog module provides the following features:
+
+* Display base and custom prices for grouped products within a shared catalog. There is no ability to edit the price of a grouped product.
+
+* Control the visibility of grouped products in quotes and orders. Only those grouped products that have been added to a shared catalog will be available for searches via the "Add by SKU" feature in quotes and orders. 
+
+### module-import-export
+Magento_ImportExport module provides a framework and basic functionality for importing/exporting various entities in Magento.
+It can be disabled and in such case all dependent import/export functionality (products, customers, orders etc.) will be disabled in Magento.
+
+### module-indexer
+Magento_Indexer module is a base of Magento Indexing functionality.
+It allows:
+ - read indexers configuration,
+ - represent indexers in admin,
+ - regenerate indexes by cron schedule,
+ - regenerate indexes from console,
+ - view and reset indexer state from console,
+ - view and set indexer mode from console
+
+There are 2 modes of the Indexers: "Update on save" and "Update by schedule".
+Manual full reindex can be performed via console by running `php -f bin/magento indexer:reindex` console command.
+### module-instant-purchase
+Instant Purchase feature allows the Customer to place the order in seconds without going through full checkout. Once clicked, system places the order using default shipping and billing addresses and stored payment method. Order is placed and customer gets confirmation message in notification area.
+
+Prerequisites to display the Instant Purchase button:
+1. Instant purchase enabled for a store at `Store / Configurations / Sales / Sales / Instant Purchase`
+2. Customer is logged in
+3. Customer has default shipping and billing address defined
+4. Customer has valid stored payment method with instant purchase support
+### module-integration
+**Integration** enables third-party services to call the Web API by using access tokens.
+It provides an admin UI that enables manual creation of integrations. Extensions can also provide a configuration
+file so that an integration can be automatically pre-configured. The module also contains the data
+model for request and access token management.
+
 ### module-inventory 
+The `Inventory` module is part of the new inventory infrastructure,
+which replaces the legacy `CatalogInventory` module with new and expanded features and APIs for Inventory Management.  
+ 
+The [Inventory Management overview](https://devdocs.magento.com/guides/v2.3/inventory/index.html)
+describes the MSI (Multi-Source Inventory) project in more detail.
+
+All Inventory Management modules follow the 
+[Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle).
+[Inventory management architecture](https://devdocs.magento.com/guides/v2.3/inventory/architecture.html) 
+provides additional insight about the overall structure of these modules.
+
 ### module-inventory-admin-ui 
+The `InventoryAdminUi` module extends the Magento Admin UI to add Inventory Management functionality.
+
 ### module-inventory-api 
-### module-inventory-bundle-product 
-### module-inventory-bundle-product-admin-ui 
-### module-inventory-cache 
+The `InventoryApi` module provides Inventory Management service contracts. 
+
+### module-inventory-bundle-product
+The `InventoryBundleProduct` module integrates inventory management business logic into Magento's bundle product logic..
+
+### module-inventory-bundle-product-admin-ui
+The `InventoryBundleProductAdminUi`extends the Magento Admin UI to add MSI functionality.
+
+### module-inventory-cache
+The `InventoryCache` module integrates inventory management business logic into Magento's cache logic.
+
 ### module-inventory-catalog 
+The `InventoryCatalog` module integrates inventory management business logic into Magento's catalog logic.
+
 ### module-inventory-catalog-admin-ui 
+The `InventoryCatalogAdminUi` module extends the Magento Admin UI to add MSI functionality.
+
 ### module-inventory-catalog-api 
+The `InventoryCatalogApi` module provides service contracts for default source and stock providers as well as bulk operations. 
+
 ### module-inventory-catalog-search 
+The `InventoryCatalogSearch` module integrates inventory management business logic into Magento's search logic.
+
 ### module-inventory-configurable-product 
+The `InventoryConfigurableProduct` module integrates inventory management business logic into Magento's configurable product logic.
+
 ### module-inventory-configurable-product-admin-ui 
+The `InventoryConfigurableProductAdminUi`extends the Magento Admin UI to add inventory management functionality.
+
 ### module-inventory-configurable-product-indexer 
+The `InventoryConfigurableProductIndexer` module integrates inventory management business logic into Magento's indexation logic for configurable products.
+
 ### module-inventory-configuration 
+The `InventoryConfiguration` module implements logic for inventory management configuration.
+
 ### module-inventory-configuration-api 
-### module-inventory-distance-based-source-selection 
-### module-inventory-distance-based-source-selection-admin-ui 
-### module-inventory-distance-based-source-selection-api 
+The `InventoryConfigurationApi` module provides service contracts for inventory management configuration.
+
+### module-inventory-distance-based-source-selection
+The `InventoryDistanceBasedSourceSelection` module implements logic for distance based source selection
+
+This module is part of the new inventory infrastructure. The
+[Inventory Management overview](https://devdocs.magento.com/guides/v2.3/inventory/index.html)
+describes the MSI (Multi-Source Inventory) project in more detail.
+
+### module-inventory-distance-based-source-selection-admin-ui
+The `InventoryDistanceBasedSourceSelectionAdminUi` module extends Magento's admin UI with source selection based on distance functionality.
+
+### module-inventory-distance-based-source-selection-api
+The `InventoryDistanceBasedSourceSelectionApi` module provides service contracts for distance based source selection algorithm. 
+
 ### module-inventory-elasticsearch 
+The `InventoryElasticsearch` module provides elastic search support for Inventory Management.
+
 ### module-inventory-grouped-product 
-### module-inventory-grouped-product-admin-ui 
+The `InventoryGroupedProduct` module integrates inventory management business logic into Magento's grouped product logic.
+
+### module-inventory-grouped-product-admin-ui
+The `InventoryGroupedProductAdminUi` module extends Magento's admin UI with inventory management functionality.
+
+This module is part of the new inventory infrastructure. The
+[Inventory Management overview](https://devdocs.magento.com/guides/v2.3/inventory/index.html)
+describes the MSI (Multi-Source Inventory) project in more detail.
+
 ### module-inventory-grouped-product-indexer 
-### module-inventory-import-export 
-### module-inventory-indexer 
+The `InventoryGroupedProductIndexer` module integrates inventory management business logic into Magento's indexation logic for grouped products.
+
+### module-inventory-import-export
+The `InventoryImportExport` module provides compatibility between Magento's flat file import/export logic and Inventory Management.
+
+### module-inventory-indexer
+The `InventoryIndexer` module provides indexation logic for Inventory Management.
+
 ### module-inventory-low-quantity-notification 
+The `InventoryLowQuantityNotification` module integrates Inventory Management business logic into Magento's low quantity notification logic.
+
 ### module-inventory-low-quantity-notification-admin-ui 
+The `InventoryLowQuantityNotificationAdminUi` module extends Magento's admin UI with inventory management functionality.
+
 ### module-inventory-low-quantity-notification-api 
+The `InventoryLowQuantityNotificationApi` module provides service contracts for managing Inventory Management notifications.
+
 ### module-inventory-multi-dimensional-indexer-api 
+The `InventoryMultiDimensionalIndexerApi` module  provides functionality for creating and handling multi-dimension indexes.
+The library introduces a set of extension points which split a monolithic index by the specified dimension (Scope), creating 
+an independent index (i.e. dedicated MySQL table) per dimension. The library also provides a mechanism for resolving 
+index names based on the provided scope. The multi-dimension indexes are introduced for the sake of data scalability
+and the ability to reindex data in the scope of particular dimension only.
+
+An aliasing mechanism guarantees zero downtime to make Front-End responsive while Full Reindex being processed.
+
 ### module-inventory-product-alert 
-### module-inventory-reservations 
+The `InventoryProductAlert` module integrates Inventory Management business logic into Magento's product alert logic.
+
+### module-inventory-reservations
+The `InventoryReservations` module provides logic for handling product reservations.
+
 ### module-inventory-reservations-api 
-### module-inventory-sales 
-### module-inventory-sales-admin-ui 
-### module-inventory-sales-api 
-### module-inventory-sales-frontend-ui 
-### module-inventory-setup-fixture-generator 
-### module-inventory-shipping 
-### module-inventory-shipping-admin-ui 
+The `InventoryReservationsApi` module provides service contracts for Inventory Management reservations.
+
+### module-inventory-sales
+The `InventorySales` module integrates Inventory Management business logic into Magento's sales logic.
+
+### module-inventory-sales-admin-ui
+The `InventorySalesAdminUi` module extends Magento's Admin UI with Inventory Management functionality.
+
+### module-inventory-sales-api
+The `InventorySalesApi` module provides service contracts for inventory management.
+
+### module-inventory-sales-frontend-ui
+The `InventorySalesFrontendUi` module extends Magento's frontend UI with Inventory Management functionality.
+
+### module-inventory-setup-fixture-generator
+The `InventorySetupFixtureGenerator` module customizes the process of Inventory Data (Salable Quantity) Generation for [performance testing](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-perf-data.html).
+
+### module-inventory-shipping
+The `InventoryShipping` module integrates MSI business logic into Magento's shipping logic.
+
+### module-inventory-shipping-admin-ui
+The `InventoryShippingAdminUi` module extends Magento's Admin UI with Inventory Management functionality.
+
 ### module-inventory-source-deduction-api 
+The `InventorySourceDeductionApi` module provides service contracts for managing source deductuions when products are sold.
+
 ### module-inventory-source-selection 
+The `InventorySourceSelection` module provides source selection logic for Inventory Management.
+
 ### module-inventory-source-selection-api 
-### module-invitation 
+The `InventorySourceSelectionApi` module provides service contracts for source selection algorithms (SSA).
+
+### module-invitation
+The Magento_Invitation module enables invitation sending, referral tracking and generating invitation reports.
+
 ### module-layered-navigation 
+Magento_LayeredNavigation module introduces Layered Navigation UI for Catalog (faceted search).
+This module can be removed from Magento installation without impact on the application.
+
 ### module-layered-navigation-staging 
+The Magento_LayeredNavigationStaging module is a part of the staging functionality in Magento EE.
+It restricts functionality of the Magento_LayeredNavigationStaging module in the staging preview mode.
+
 ### module-logging 
+The Logging module is used for logging actions done in the backend by administrators. Information such as time of action, type of action and administrator who performed the action is recorded.
+By default all actions are recorded. Rules can be configured only to identify specific kinds of actions.
+
 ### module-marketplace 
+The Magento_Marketplace module allows to display partners of Magento in the backend.
+
 ### module-media-storage 
+The Magento_MediaStorage module implements functionality related with upload media files and synchronize it by database.
+
 ### module-message-queue 
+**MessageQueue** provides support of Advanced Message Queuing Protocol
+
 ### module-msrp 
 ### module-msrp-sample-data 
+Magento_MsrpSampleData module consists of installation scripts and fixtures.
+
 ### module-msrp-staging 
-### module-multiple-wishlist 
+The Magento_MsrpStaging module is a part of the staging functionality in Magento EE. It enables you to stage the manufacturer's suggested retail price.
+
+The Magento_MsrpStaging module extends the Magento_Msrp module to be used in staging. It adds the following fields in the Advice Pricing form:
+
+- Manufacturer's Suggested Retail Price
+- Display Actual Price
+
+### module-multiple-wishlist
+The Magento_MultipleWishlist module implements the multiple wishlists functionality.
+These are lists of products from a store a customer would like to buy. Customers can save products to multiple wish lists and copy or move items from list to list.
+
 ### module-multiple-wishlist-sample-data 
+Magento_MultipleWishlistSampleData module consists of installation scripts and fixtures.
+
 ### module-multishipping 
+Magento\Multishipping module provides functionality that allows customer to request shipping to more than one address
+using different carriers. The module provides alternative to standard checkout flow.
+
 ### module-mysql-mq 
+**MysqlMq** provides message queue implementation based on MySQL.
+
 ### module-negotiable-quote 
+The Magento_NegotiableQuote module allows a customer and a merchant (admin user) to negotiate product and/or shipping prices before the customer places an order. Its functionality is available for the company members only. 
+
+Currently, B2B quoting is global--the price is given for the quote as a whole. Quoting per item is not supported. The quote lifecycle is managed via quote statuses. The quoting interface allows both a merchant and a customer to manage items in the quote (add, delete, change quantity) as well as make an offer (or request a quote) for items and/or for shipping. The negotiated price set in the negotiable quote is exactly the price that will be applied on a quote during checkout, order generation, and invoice generation. 
+
+The module provides a set of configurations for the quoting feature, such as the ability to request a quote, configure the minimum quote amount, configure the default expiration period, configure attached files, and set email templates for quotes. The module provides web APIs and can be integrated with 3rd party solutions to manage negotiable quote in Magento.
+ 
+The module heavily depends on the Quote and Magento_Company modules, which must be previously installed and enabled. 
+
+Also, the module has dependency on the following Magento’s B2C modules: Tax module, Checkout module and Cart Pricing Rules module. 
+
+When working with the SharedCatalog module, Negotiable Quote will be restricted to the products added to the shared catalog and custom prices set in the shared catalog. 
+
+The module does not create any backward incompatible changes. Can be deactivated and uninstalled at any time.
+ 
 ### module-negotiable-quote-shared-catalog 
-### module-new-relic-reporting 
+The Magento_NegotiableQuoteSharedCatalog module enables the NegotiableQuote module to interact with a SharedCatalog in an B2B environment. This module extends the Magento_NegotiableQuote module and Magento_SharedCatalog modules.
+
+The Magento_NegotiableQuoteSharedCatalog module provides the following features:
+
+* Remove items from a negotiable quote if corresponding products were removed from this company's shared catalog.
+ 
+### module-new-relic-reporting
+Module Magento\NewRelicReporting implements integration New Relic APM and New Relic Insights with Magento, giving 
+real-time visibility into business and performance metrics for data-driven decision making. 
+
 ### module-newsletter 
+Magento_Newsletter module allows clients to subscribe for information about new promotions and discounts and allows store administrators to send newsletters to clients subscribed for them.
+
 ### module-offline-payments 
+The Magento_OfflinePayments module implements the payment methods which do not require interaction with a payment gateway (so called offline methods). These methods are the following:
+*Bank transfer
+*Cash on delivery
+*Check / Money Order
+*Purchase order
+
 ### module-offline-shipping 
+The Magento_OfflineShipping module implements the shipping methods which do not involve a direct interaction with shipping carriers, so called offline shipping methods. Namely, the following:
+*Free Shipping
+*Flat Rate
+*Table Rates
+*Store Pickup
+
 ### module-offline-shipping-sample-data 
+Magento_OfflineShippingSampleData module consists of installation scripts and fixtures.
+
 ### module-page-cache 
+The PageCache module provides functionality of caching full pages content in Magento application. An administrator may switch between built-in caching and Varnish caching. Built-in caching is default and ready to use without the need of any external tools.
+Requests and responses are managed by PageCache plugin. It loads data from cache and returns a response. If data is not present in cache, it passes the request to Magento and waits for the response. Response is then saved in cache.
+Blocks can be set as private blocks by setting the property '_isScopePrivate' to true. These blocks contain personalized information and are not cached in the server. These blocks are being rendered using AJAX call after the page is loaded. Contents are cached in browser instead.
+Blocks can also be set as non-cacheable by setting the 'cacheable' attribute in layout XML files. For example `<block class="Block\Class" name="blockname" cacheable="false" />`. Pages containing such blocks are not cached.
+
 ### module-payment 
+The Magento_Payment module provides the abstraction level for all payment methods, and all logic that should be used when adding a new payment method. This logic includes configuration models, separate models for payment data verification and so on.
+For example, Magento\Payment\Model\Method\AbstractMethod is an abstract model which should be extended by particular payment methods.
+
 ### module-payment-staging 
-### module-paypal 
-### module-paypal-on-boarding 
+The Magento_PaymentStaging module is a part of the staging functionality in Magento EE. It extends the Magento_Payment module for the staging preview functionality.
+
+### module-paypal
+Module Magento\PayPal implements integration with the PayPal payment system. Namely, it enables the following payment methods:
+*PayPal Express Checkout
+*PayPal Payments Standard
+*PayPal Payments Pro
+*PayPal Credit
+*PayFlow Payment Gateway
+
+### module-paypal-on-boarding
+Module Magento\PaypalOnBoarding gives an ability to run PayPal on-boarding flow from Magento PayPal Express Checkout configuration page so merchant can get API credentials configured automatically on merchants store without a need to provide those manually. 
+
 ### module-persistent 
+Magento\Persistent module enables set customer a long-term cookie containing internal id (random hash - to exclude brute
+force) of persistent session. Persistent session data is kept in DB - so it's not deleted in some days and is kept for
+as much time as we need. DB session keeps customerId + some data from real customer session that we want to sync (e.g.
+num items in shopping cart). For registered customer this info is synced to persistent session if choose "Remember me"
+checkbox during first login.
+
 ### module-persistent-history 
+Magento\PersistentHistory module extends functionality of Magento\Persistent by providing ability to keep track of
+products added to  wishlist, recently ordered items, currently compared products, comparison history, recently viewed
+products and customer group membership and segmentation.
+
 ### module-price-permissions 
+Magento_PricePermissions module allows to restrict such admin rights as changing or reading product price, changing product status.
+
 ### module-product-alert 
+The Magento_ProductAlert module enables product alerts, which allow customers to sign up for emails about product price or stock status change.
+
 ### module-product-links-sample-data 
-### module-product-video 
-### module-product-video-staging 
+Magento_ProductLinksSampleData module consists of installation scripts and fixtures.
+
+### module-product-video
+The Magento_ProductVideo module implements functionality related with linking video files from external resources to product.
+
+### module-product-video-staging
+The Magento_ProductVideoStaging module is a part of the staging functionality in Magento EE. It enables you to add or remove a video to a product update.
+
 ### module-promotion-permissions 
+Magento\PromotionPermission module provides the possibility to an admin user to manage access of promotions and product
+prices in the Admin Panel. An admin user can set the following access rights for promotions and product prices: edit,
+read, without any permissions.
+
 ### module-quick-order 
+The Magento_QuickOrder module allows customers to improve their user experience by creating a new order from a list of multiple SKUs.
+
+Multiple items can be sent to the shopping cart from a CSV file, by copy-pasting multiple SKUs from another source, or by manually entering SKUs one-by-one into the Quick Order form. This feature is available for both logged-in users and guests.
+ 
 ### module-quote 
 ### module-quote-analytics 
+The Magento_QuoteAnalytics module configures data definitions for a data collection related to the Quote module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
+
 ### module-quote-graph-ql 
+**QuoteGraphQl** provides type and resolver information for the GraphQl module
+to generate quote (cart) information endpoints. Also provides endpoints for modifying a quote.
+
 ### module-release-notification 
+The **Release Notification Module** serves to provide a notification delivery platform for displaying new features of a Magento installation or upgrade as well as any other required release notifications.
+* Provides a method of notifying administrators of changes, features, and functionality being introduced in a Magento release.
+* Displays a modal containing a high level overview of the features included in the installed or upgraded release of Magento upon the initial login of each administrator into the Admin Panel for a given Magento version.
+* The modal is enabled with pagination functionality to allow for easy navigation between each modal page.
+* Each modal page includes detailed information about a highlighted feature of the Magento release or other notification.
+* Release Notification modal content is determined and provided by Magento Marketing.
+Release notification content is maintained by Magento for each Magento version, edition, and locale. To retrieve the content, a response is returned from a request with the following parameters:
+*  **version** = The Magento version that the client has installed (ex. 2.3.0).
+*  **edition** = The Magento edition that the client has installed (ex. Community).
+*  **locale** = The chosen locale of the admin user (ex. en_US).
+The module will make three attempts to retrieve content for the parameters in the order listed:
+1. Version/Edition/Locale
+2. Version/Edition/en_US (default locale)
+3. Version (default file for a Magento version)
+If there is no content to be retrieved after these requests, the release notification modal will not be displayed to the admin user.
+
 ### module-reminder 
+Magento_Reminder module provides functionality for sending reminder emails to customers according to pre-configured rules.
+
 ### module-reports 
+Magento_Reports module provides ability to collect various reports such as:
+ - products reports (bestsellers, low stock, most viewed, products ordered),
+ - sales reports (orders, tax, invoiced, shipping, refunds, coupons, and PayPal settlement reports),
+ - customer reports (new accounts, customer by order totals, customers by number of orders),
+ - shopping cart reports (products in cart, abandoned carts)
+
 ### module-require-js 
+The Magento\RequireJs module introduces support for RequireJs JavaScript library and provides infrastructure for other modules to have them declared related configuration for RequireJs library.
+
 ### module-requisition-list 
+The Magento_RequisitionList module allows a customer to create multiple lists of frequently-purchased items and use those lists for order placement. This feature is available for both logged-in users and guests.
+ 
+RequisitionList functionality is similiar to wish lists, but it has the following differences: 
+
+* A requisition list is not purged after sending items to the shopping cart. It can be used to place multiple orders.
+* The UI for requisition lists has been modified to a compact view in order to display large number of items. 
+
+The merchant can configure maximum number of requisition lists per customer. 
+
 ### module-resource-connections 
+Magento\ResourceConnections module adds a mechanism to segregate database connections between master and slave 
+database servers based on the request type.
+
+For each master database connection (except the indexer connection) that are configured in db/connection section 
+of app/etc/env.php you can add one slave connection that can be configured in db/slave_connection.
+Configuration format is the same as db/connection. Slave connection name must be the same as associated master 
+connection name. To enable slave connections for specific resources create a slave connection configuration 
+by adding slave_connection node as below:
+
+```php
+<?php
+return array (
+    //...
+    'db' =>
+        array (
+            'connection' =>
+                array (
+                    'default' =>
+                        array (
+                            'host' => 'default-master-host',
+                            'dbname' => 'magento',
+                            'username' => 'magento',
+                            'password' => 'magento',
+                            'active' => '1',
+                        ),
+                ),
+            'slave_connection' =>
+                array (
+                    'default' =>
+                        array (
+                            'host' => 'default-slave-host',
+                            'dbname' => 'magento',
+                            'username' => 'read_only',
+                            'password' => 'password',
+                            'active' => '1',
+                ),
+        ),
+        'table_prefix' => '',
+    ),
+    //.......
+```
+To add slave connection for resources other than 'default' repeat the step and add to db/slave_connection 
+new element with same name and slave configuration for specified resource. 
+Config structure retains backward compatibility if module is turned off.
+
+WARNING: 'indexer' connection is not designed to have slave configuration.
+
 ### module-review 
-### module-review-analytics 
-### module-review-sample-data 
+Magento_Review module functionality allows to write reviews for products.
+
+### module-review-analytics
+The Magento_ReviewAnalytics module configures data definitions for a data collection related to the Review module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
+
+### module-review-sample-data
+Magento_ReviewSampleData module consists of installation scripts and fixtures.
+
 ### module-review-staging 
+The Magento_ReviewStaging module is a part of the staging functionality in Magento EE. It displays the Product Reviews grid on the Schedule Update form.
+
+## Implementation details
+The Magento_ReviewStaging module extends the following Magento_Review module functionality to be used in staging mode:
+
+- Adds Product Reviews grid on the Schedule Update form. 
+
+NOTE You cannot create an update for a product review.
+
 ### module-reward 
-### module-reward-graph-ql 
-### module-reward-staging 
+Magento\Reward module allows an online merchant to implement unique programs designed to enhance user experience and increase
+customer loyalty. Points are awarded based on a wide range of transaction and customer activities, with the ability for
+the merchant to control point allotment, balance, and expiration. Customers can redeem points toward purchases based on
+a conversion rate between points and currency that is set up by the merchant.
+
+### module-reward-graph-ql
+**RewardGraphQl** provides type information for the GraphQl module
+to generate reward fields for customer information endpoints.
+
+### module-reward-staging
+
+The Magento_RewardStaging module is a part of the staging functionality in Magento EE. It enables you to create updates for the Add Reward Points attribute of Sales Rules.
+
+The Magento_RewardStaging module extends the following Magento_Reward module functionality to be used in staging mode:
+
+- Adds the ability to be staged for Add Reward Points field of Sales Rules.
+
 ### module-rma 
+Rma module is responsible for processing Return Merchandise Approvals.
+
 ### module-rma-graph-ql 
+**RmaGraphQl** provides type information for the GraphQl module
+to generate rma fields for catalog and product information endpoints.
+
 ### module-rma-staging 
+The Magento_RmaStaging module is a part of the staging functionality in Magento EE. It enables you to create updates for the parameters of the Autosettings field set of a product.
+
+RMA stands for a return merchandise authorization.
+
+The Magento_RmaStaging module extends the following Magento_Rma module functionality to be used in staging mode:
+- Adds the Autosettings field set to the Schedule update form of a product.
+
 ### module-robots 
+The Robots module provides the following functionalities: 
+* contains a router to match application action class for requests to the `robots.txt` file;
+* allows obtaining the content of the `robots.txt` file depending on the settings of the current website.
+
 ### module-rss 
+Magento_Rss module is responsible for processing all RSS feeds of the application and allows to turn on/off RSS centrally.
+
 ### module-rule 
+Magento_Rule module provides abstract implementation of rules and rule conditions that are extended by other modules, in particular by: Magento_SalesRule, Magento_CatalogRule, etc...
+
 ### module-sales 
-### module-sales-analytics 
+Magento\Sales module is responsible for order processing and appearance in system,
+Magento\Sales module manages next system entities and flows:
+* order management;
+* invoice management;
+* shipment management (including tracks management);
+* credit memos management;
+Magento\Sales module is required for Magento\Checkout module to perform checkout operations.
+
+### module-sales-analytics
+The Magento_SalesAnalytics module configures data definitions for a data collection related to the Sales module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
+
 ### module-sales-archive 
+Magento\SalesArchive module responsible for creating logical partitions for storing previews of orders, invoices, credit memos, shipments.
+Primary purpose of this module is to increase performance for read operation on orders (shipments, credit memos, shipments) grid.
 ### module-sales-inventory 
+Magento_SalesInventory module allows retrieve and update stock attributes related to Magento_Sales, such as status and quantity.
+
 ### module-sales-rule 
+SalesRule module is responsible for managing and processing Promotion Shopping Cart Rules.
+
 ### module-sales-rule-sample-data 
-### module-sales-rule-staging 
+Magento_SalesRuleSampleData module consists of installation scripts and fixtures.
+
+### module-sales-rule-staging
+The Magento_SalesRuleStaging module is a part of the staging functionality in Magento EE. It enables you to create new sales rule updates or add new changes to the existing store updates. In other words, you can modify the sales rules in updates. These updates are shown on the content dashboard.
+
+The Magento_SalesRuleStaging module changes the Cart Price Rules page and the sales rule related database tables to make them compatible with the Magento Staging Framework. 
+The Magento_SalesRuleStaging module enables you to stage the following sales rule attributes:
+
+- Rule Name
+- Description
+- Websites
+- Customer Groups
+- Priority
+- Condition
+- Action
+
+This module depends on the Magento_SalesRule module and extends its functionality. It changes database structure of the Magento_SalesRule module and the way in which sales rules are managed.
+ 
 ### module-sales-sample-data 
+Magento_SalesSampleData module consists of installation scripts and fixtures.
+
 ### module-sales-sequence 
+Magento\SalesSequence module is responsible for sequences processing in Sales module,
+Magento\SalesSequence module manages sequences for next system entities and flows:
+* order;
+* invoice;
+* shipment;
+* credit memos;
+Magento\SalesSequence module is required for Magento\Sales module.
+
 ### module-sample-data 
+Magento sample data includes a sample store, complete with more than 250 products (about 200 of them are configurable products), categories, promotional price rules, CMS pages, banners, and so on. Sample data uses the Luma theme on the storefront.
+
+Installing sample data is optional.
+
+Technically, sample data is a set of regular Magento modules, which can be deployed and installed together with the Magento instance, or later in the scope of upgrade.
+
 ### module-scalable-checkout 
+Magento\ScalableCheckout module provides ability for system extension (Checkout can be configured to work with separate DataBase).
+Extraction of Checkout tables to separate database will guarantee better scalability for Magento,
+and will allow main server to be optimised for read operations which will reduce latency.
+
 ### module-scalable-inventory 
+Magento\ScalableInventory module provides ability for system extension (CatalogInventory can be configured to work with separate quantity storage).
+Extraction of quantity updates to separate storage will guarantee better scalability for Magento,
+and will allow main server to be optimised for read operations which will reduce latency.
+
 ### module-scalable-oms 
+Magento\ScalableOms (Order Management System) module provides ability for system extension
+(Sales can be configured to work with separate database).
+Extraction of Sales tables to separate database will guarantee better scalability for Magento,
+and will allow main server to be optimised for read operations which will reduce latency.
+
 ### module-scheduled-import-export 
+Magento_ScheduledImportExport functionality allows to simplify routine of importing and/or exporting data in the store by automating this process.
+Admin user can create a rule for importing or exporting new data (which could be Products, Customers and Customer Addresses) and specify date and time of the operation.
+
 ### module-search 
+Magento_Search module introduces basic search functionality and provides interfaces that allow to implement search for specific module.
+
 ### module-search-staging 
+The Magento_SearchStaging module is a part of the staging functionality in Magento EE.
+It restricts functionality of the Magento_SearchStaging module in the staging preview mode.
+
 ### module-security 
+**Security** management module
+_Main features:_
+1. Added support for simultaneous admin user logins with ability to enable/disable the feature, review and disconnect the list of current logged in sessions
+2. Added password complexity configuration
+3. Enhanced security to prevent account takeover for sessions opened on public computers and similar:
+    * Password confirmation for all critical flows (like password, email change)
+    * Lockout of the account after a configurable amount of incorrect login/password entries
+    * Password Change functionality is enhanced by email and/or ip address by frequency, number and requests per hour limitation
+    * Change password link becomes invalid after the first use or after a configurable amount of time
+    * Password/email change notifications are sent to both old and new email addresses
+4. Fixed: the password is not being reset until the new password is submitted via the form available by a one time link sent to the email address
+
 ### module-send-friend 
+The Magento_SendFriend implements the functionality behind the "Email to a Friend" link on a product page, which allows to share favorite products with others by clicking the link.
+
 ### module-shared-catalog 
+The Magento_SharedCatalog modules defines the visibility of products as well as product prices in the catalog and in B2B quotes for different company accounts. 
+
+The module allows a merchant to create multiple shared catalogs, link them to one or more company accounts, and set different product prices. Shared catalogs also control the visibility of products and categories for a company in the storefront. The shared catalog type (public or custom) defines the scope of products and prices available for guest users vs logged-in users. The system can have only one public and any number of custom shared catalogs.
+
+The module relies on the CatalogPermissions module, in that the visibility of categories for a customer group is defined by category permissions for this customer group. Once a shared catalog is enabled in B2B features, the category permissions are automatically enabled. Adding a product or a category to a shared catalog enables appropriate category permissions for the customer groups linked to this shared catalog.
+
+The module provides web APIs and can be integrated with third-party solutions to manage shared catalogs in Magento.
+ 
 ### module-shipping 
-### module-signifyd 
+The Magento_Shipping module provides the abstract models and interfaces for a shipping carrier integration, including the web interface for the Shipment entity.
+You need to extend these abstractions if you are adding new shipping carrier integration.
+
+### module-signifyd
+The Magento_Signifyd module provides integration with the [Signifyd](https://www.signifyd.com/) fraud protection system. The integration is based on the Signifyd API; see the [Signifyd API docs](https://www.signifyd.com/docs/api/#/introduction/) for technical details.
+
+The module implementation allows to:
+
+ - create a [Signifyd case](https://www.signifyd.com/docs/api/#/reference/cases) for a placed order
+ - automatically receive a [Signifyd guarantee](https://www.signifyd.com/docs/api/#/reference/guarantees) for a created case
+ - automatically cancel a guarantee when the order is canceled
+
 ### module-sitemap 
+The Sitemap module allows managing the Magento application sitemap and
+[sitemap.xml](http://en.wikipedia.org/wiki/Sitemaps) for searching engines.
+
 ### module-staging 
+Magento_Staging module is used for setting up, previewing and managing future store updates.
+Magento_Staging module have configured timeline view that simplify representation of updates. Configuration of
+timeline is present in view/adminhtml/ui_component/staging_update_grid.xml file. Difference between simple grid is
+in next components declaration:
+ - listingToolbar
+    * template - overloaded template to provide switcher between grid and timeline, legend for timeline.
+    * updateTypes - path to status column that provide data for legend
+ - columns
+    * component - timeline component tht extends listing.
+    * recordTmpl - overloaded template for timeline records.
+    * detailsTmpl - template for tooltip that provide details about updates.
+ - status column
+    * component - extends selection column, sets class based on value.
+    * updateTypesMap - array that contains bounded classes and values.
+ - To avoid mixed content and to work properly, Staging Site Preview feature requires both Storefront and Admin area to be under the same protocol (http or https).
+
 ### module-store 
+The Store module provides one of the basic and major features of a content management system for e-commerce web
+sites by creating and managing a store for the customers to conduct online-shopping. Stores can be combined in groups,
+and are linked to a specific website. All store related configurations (currency, locale, scope etc.), management and
+storage maintenance are covered under this module.
+
 ### module-store-graph-ql 
+**StoreGraphQl** provides type information for the GraphQl module
+to generate store fields information endpoints.
+
 ### module-support 
+Magento_Support module is used for generation of system reports, which provide detailed information about the system environment and Magento instance configuration.
+
 ### module-swagger 
+The Magento_Swagger module provides access to a page generated using the swagger-ui package. The swagger-ui can be viewed
+[on Github](https://github.com/swagger-api/swagger-ui). It accesses the JSON Schema describing Magento's REST APIs,
+and displays it in a user-friendly, navigable format.
+
 ### module-swagger-webapi 
+The Magento_SwaggerWebapi module provides the implementation of the REST Webapi module with Magento_Swagger.
+
 ### module-swagger-webapi-async 
+The Magento_SwaggerWebapiAsync module provides the implementation of the Asynchronous WebApi module with Magento_Swagger.
+
 ### module-swatches 
+Magento_Swatches module is replacing default product attributes text values with swatch images, for more convenient product displaying and selection.
+
 ### module-swatches-graph-ql 
+**SwatchesGraphQl** provides type information for the GraphQl module
+to generate swatches fields for catalog and product information endpoints.
+
 ### module-swatches-layered-navigation 
+The **Magento_SwatchesLayeredNavigation** module enables LayeredNavigation functionality for Swatch attributes
+
 ### module-swatches-sample-data
+Magento_SwatchesSampleData module consists of installation scripts.
+
 ### module-target-rule 
+Magento_TargetRule module allows to configure the rules for showing related products.
+
 ### module-target-rule-sample-data 
+Magento_TargetRuleSampleData module consists of installation scripts.
+
 ### module-tax 
+The Magento_Tax module provides the calculations needed to compute the consumption tax on goods and services.
+
+The Magento_Tax module includes the following:
+* configuration of the tax rates and rules to apply
+* configuration of tax classes that apply to:
+** taxation on products
+** taxation on shipping charges
+** taxation on gift options (example: gift wrapping)
+* specification whether the consumption tax is "sales & use" (typically product prices are loaded without any tax) or "VAT" (typically product prices are loaded including tax)
+* specification of whether the tax total line can be toggled to display the tax details/subtotals
+* display of prices (presented with tax, without tax, or both with and without)
+
+The Magento_Tax module also handles special cases when computing tax, such as:
+* determining the tax on an individual item (for example, one that is being returned) when the original tax has been computed on the entire shopping cart
+** example country: United States
+* being able to handle 2 or more tax rates that are applied separately (examples include a "luxury tax" on exclusive items)
+* being able to handle a subsequent tax rate that is applied after a previous one is applied (a "tax on tax" situation, which recently was a part of Canadian tax law)
+
 ### module-tax-graph-ql 
+**TaxGraphQl** provides type information for the GraphQl module
+to generate tax fields for catalog and product information endpoints.
+
 ### module-tax-import-export 
 ### module-tax-sample-data 
+Magento_TaxSampleData module consists of installation scripts.
 ### module-theme 
+The Theme module contains common infrastructure that provides an ability to apply and use themes in Magento application.
 ### module-theme-sample-data 
+Magento_ThemeSampleData module consists of installation scripts.
 ### module-tinymce-3 
+We have updated the TinyMCE module to the latest available version, 4.6.4. TinyMCE v4.6.4 provides backwards-compatibility for modified editor modules to prevent the loss of functionality. The TinyMCE3 module is now deprecated and will be removed in a future release.
 ### module-tinymce-3-banner 
-### module-translation 
+Tinymce3Banner module allows to update banner widget images on Wysiwyg. We have updated the TinyMCE module to the latest available version, 4.6.4. TinyMCE v4.6.4 provides backwards-compatibility for modified editor modules to prevent the loss of functionality. With TinyMCE4 you can update banner widget images using the WYSIWYG. The TinyMCE3 module is now deprecated and will be removed in a future release.
+### module-translation
+**Translation** enables localization of a store for multiple regions and markets.
+Also provides the inline translation tool.
+
 ### module-ui 
+The Magento\Ui module introduces a set of common UI components, which could be used and configured via layout XML files.
+
 ### module-ups 
+The Magento_Ups module implements integration with the United Parcel Service shipping carrier.
+
 ### module-url-rewrite 
+Magento_UrlRewrite module provides ability to customize website URLs by creating custom URL rewrite rules.
+
 ### module-url-rewrite-graph-ql 
+**UrlRewriteGraphQl** provides type information for the GraphQl module
+to generate url rewrites from entities that implement such rewrites,
+like categories, products or cms and other 3rd party modules.
+
 ### module-user 
+**User** enables admin users to manage and assign roles to administrators and other non-customer users,
+reset user passwords, and invalidate access tokens.
+Different roles can be assigned to different users to define their permissions.
+For admin passwords, it enables setting lifetimes and locking them when expired or when a specified numbers of failures have occurred. It allows preventing password brute force attacks for system backend.
+
 ### module-usps 
+The Magento_Usps module provides integration with the United States Postal Service shipping carrier.
+
 ### module-variable 
+Magento\Variable Allows to create custom variables and then use them in email templates or in WYSIWYG editor for editing description of system entities.
+
 ### module-vault 
+The Magento_Vault module implements the integration with the Vault payment gateway and makes the latter available as a payment method in Magento.
+
 ### module-version 
+Magento\Version Allows to get Magento version and edition by HTTP GET request
+
 ### module-versions-cms 
+The Versions CMS module adds a hierarchy feature for CMS pages.
+
+The hierarchy feature organizes CMS pages as a hierarchy tree that allows parent/child relationships between pages.
+
 ### module-visual-merchandiser 
+Create and merchandise categories quickly and easily with Visual Merchandiser for Magento.
+Drag-and-drop products into position, or set up 'Smart Categories' based upon attributes.
+Saves you hours merchandising your Magento store.
+
+With Visual Merchandiser, products can be re-organised in seconds – visually.
+You see the products in place, with images, just like the customer sees them.
+
 ### module-webapi 
+**Webapi** provides the framework for the application to expose REST and SOAP web services. It exposes an area for REST
+and another area for SOAP services and routes requests based on the Webapi configuration. It also handles
+deserialization of requests and serialization of responses. 
+
 ### module-webapi-async 
+**WebapiAsync** Extends Webapi extension and provide functional to process asynchronous requests. It handle asynchronous requests, schedule, publish and consum bulk operations from queue.
+
 ### module-webapi-security 
+**WebapiSecurity** enables access management of some Web API resources.
+If checkbox is enabled in backend through: Stores -> Configuration -> Services -> Magento Web API -> Web Api Security
+then the security of all of the services outlined in app/code/Magento/WebapiSecurity/etc/di.xml would be loosened. You may modify this list to customize which services should follow this behavior.
+By loosening the security, these services would allow access anonymously (by anyone).
+
 ### module-website-restriction 
+**Website Restriction** enables administrators to restrict all access to the site or restrict site access
+to only logged in customers. You might want to restrict all access when the site is closed for maintenance.
+You might want to restrict site access to only logged in customers if the site is a B2B site or if there is
+a private sale for registered customers.
+
 ### module-weee 
+The Magento_Weee module enables the application of fees/fixed product taxes (FPT) on certain types of products, usually related to electronic devices and recycling.
+Fixed product taxes can be used to setup a WEEE tax that is a fixed amount, rather than a percentage of the product price. FPT can be configured to be displayed at various places in Magento. Rules, amounts, and display options can be configured in the backend. This module extends the existing functionality of Magento_Tax.
+
+The Magento_Wee module includes the following:
+
+* ability to add different number of fixed product taxes to product. They are treated as a product attribute;
+* configuration of where Weee appears (on category, product, sales, invoice, or credit memo pages) and whether FPT should be taxed;
+* a new line item in the totals section.
+
 ### module-weee-graph-ql 
+**WeeeGraphQl** provides type information for the GraphQl module
+to generate wee tax fields for catalog and product information endpoints.
+
 ### module-weee-staging 
+The Magento_WeeeStaging module is a part of the staging functionality in Magento EE. It enables you to stage a value of Fixed Product Tax.
+
+The Magento_WeeeStaging module extends the following Magento_Weee module functionality to be used in staging:
+- adds an opportunity to schedule a Fixed Product Tax type attribute using the Schedule Update form of a product
+
 ### module-widget 
+The Widget module allows Magento application to be extended with custom widget blocks.
 ### module-widget-sample-data 
+Magento_WidgetSampleData module consists of installation scripts and fixtures.
+
 ### module-wishlist 
+The Magento_Wishlist implements the Wishlist functionality.
+This allows customers to create a list of products that they can add to their shopping cart to be purchased at a later date, or share with friends.
+
 ### module-wishlist-analytics 
+The Magento_WishlistAnalytics module configures data definitions for a data collection related to the Wishlist module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
+
 ### module-wishlist-sample-data 
+Magento_WishlistSampleData module consists of installation scripts and fixtures.
+
 ### module-worldpay 
+The Magento_Worldpay module implements the integration with the Worldpay payment gateway and makes the latter available as a payment method in Magento.
+
 ### sample-data-media 
+Sample Media Data...
 ### theme-adminhtml-backend 
-### theme-frontend-blank 
+Magento 2 backend theme
+### theme-frontend-blank
+Magento Blank theme
 ### theme-frontend-luma 
+Magento Luma child of blank
 ### zendframework1
+Contains Zend Framework 1 plus performance improvements and bug fixes.
