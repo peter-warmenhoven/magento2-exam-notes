@@ -8,7 +8,7 @@ ECE-Tools is a set of scripts and tools designed to manage and deploy Cloud proj
 
 ### framework 
   contains only PHP code. These are libraries of code plus the application entry point that routes requests to modules (that in turn call the Framework libraries). For example, libraries in the Framework help implement a resource model (base classes and interfaces to inherit from) but not the resource models themselves. Certain libraries also support CSS rendering.
-- [coming soon: More details here]()
+- [More details here](https://devdocs.magento.com/guides/v2.2/architecture/archi_perspectives/framework.html)
 ### framework-amqp 
   AMQP library is designed to provide default implementation for Message Queue Framework.
 ### framework-bulk 
