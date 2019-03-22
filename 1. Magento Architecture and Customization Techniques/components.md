@@ -319,11 +319,14 @@ We do not recommend to extend the Magento_Analytics module. It introduces an API
 
 ### module-asynchronous-operations 
  This component is designed  to provide response for client who launched the bulk operation as soon as possible and postpone handling of operations moving them to background handler.
+ 
 ### module-authorization
   **Authorization** enables management of access control list roles and
 rules in the application.
+
 ### module-authorizenet 
   The Magento_Authorizenet module implements the integration with the Authorize.Net payment gateway and makes the latter available as a payment method in Magento.
+  
 ### module-b2b
   The Magento_b2b module is the base module for B2B. It must be present on all B2B installations.
 
@@ -333,36 +336,34 @@ This module also provides several B2B branding elements. For example, it adds a 
 
 This module must be installed to use and to configure the other B2B modules. It can be uninstalled after other B2B modules are uninstalled.
 
-##### Structure
- 
-[Learn about a typical file structure for a Magento 2 module](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/module-file-structure.html).
- 
-##### Extensibility
- 
-Extension developers can interact with the Magento_B2b module. For more information about the Magento extension mechanism, see [Magento plug-ins](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/plugins.html).
- 
-[The Magento dependency injection mechanism](http://devdocs.magento.com/guides/v2.2/extension-dev-guide/depend-inj.html) enables you to override the functionality of the Magento_B2b module.
 ### module-backend
   The Backend module contains common infrastructure and assets for other modules to be defined and used in their
 administration user interface (UI). It does not contain anything specific to other modules. Among many things it
 handles the logic of authenticating and authorizing users.
+
 ### module-backup
   The Backup module allows administrators to perform backups and rollbacks. Types of backups include system, database and media backups. This module relies on the Cron module to schedule backups.
 
 This module does not affect the storefront.
+
 ### module-banner
   The Banner module allows creating and managing dynamic blocks and widgets in Magento application. 
 The Dynamic Block content can be specified by Store View.
+
 ### module-banner-customer-segment
 The Banner Customer Segment module allows creating and managing banners in the customer segment scope.
+
 ### module-braintree 
 Module Magento\Braintree implements integration with the Braintree payment system.
+
 ### module-bundle
 Magento_Bundle module introduces new product type in the Magento application named Bundle Product.
 This module is designed to extend existing functionality of Magento_Catalog module by adding new product type.
+
 ### module-bundle-graph-ql 
 **BundleGraphQl** provides type and resolver information for the GraphQl module
 to generate bundle product information.
+
 ### module-bundle-import-export
 Magento_BundleImportExport module implements Bundle products import/export functionality.
 This module is designed to extend existing functionality of Magento_CatalogImportExport module by adding new product type.
@@ -397,19 +398,24 @@ The Magento_BundleRequisitionList module provides the following features:
 * Add bundle products to cart from a requisition list.
 ### module-bundle-sample-data
 Magento_BundleSampleData module consists of installation scripts and fixtures.
+
 ### module-bundle-shared-catalog
 The Magento_BundleSharedCatalog module enables bundle products to be added to a shared catalog in an B2B environment. This module extends Magento_SharedCatalog module and Magento_Bundle module.
 The Magento_BundleSharedCatalog module provides the following features:
 
 * Display and manage prices for bundle products within a shared catalog.
 * Control the visibility of bundle products in quotes and orders. Only those bundle products that have been added to a shared catalog will be available for searches via the "Add by SKU" feature in quotes and orders.
+
 ### module-bundle-staging
 The Magento_BundleStaging module is a part of the staging functionality in Magento EE. This new functionality enables you to stage a bundle product in the Schedule Update form of the product.
+
 ### module-cache-invalidate
 The CacheInvalidate module is used to invalidate the Varnish cache if it is configured.
 It listens for events that request the cache to be flushed or cause the cache to be invalid, then sends Varnish a purge request using cURL.
+
 ### module-captcha
 The Captcha module allows applying Turing test in the process of user authentication or similar tasks.
+
 ### module-catalog
 Magento_Catalog module functionality is represented by the following sub-systems:
  - Products Management. It includes CRUD operation of product, product media, product attributes, etc...
@@ -417,24 +423,32 @@ Magento_Catalog module functionality is represented by the following sub-systems
 
 Catalog module provides mechanism for creating new product type in the system.
 Catalog module provides API filtering that allows to limit product selection with advanced filters.
+
 ### module-catalog-analytics
 The Magento_CatalogAnalytics module configures data definitions for a data collection related to the Catalog module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
 ### module-catalog-event
 Magento_CatalogEvent module is designed for creating campaigns that encourage customers to buy products with lower prices.
 There are three types of the catalog events: upcoming, open, closed.
+
 ### module-catalog-graph-ql
 **CatalogGraphQl** provides type and resolver information for the GraphQl module
 to generate catalog and product information endpoints.
+
 ### module-catalog-import-export 
+
 ### module-catalog-import-export-staging
 The Magento_CatalogImportExportStaging module is a part of the staging functionality in Magento EE. It extends the Magento_CatalogImportExport module functionality to be used in staging mode.
+
 ### module-catalog-inventory
 Magento_CatalogInventory module allows retrieve and update stock attributes, such as status and quantity.
+
 ### module-catalog-inventory-graph-ql 
 **CatalogInventoryGraphQl** provides type information for the GraphQl module
 to generate inventory stock fields for product information endpoints.
+
 ### module-catalog-inventory-staging 
 The Magento_CatalogInventoryStaging module is a part of the staging functionality in Magento EE. It extends the Magento_CatalogInventory module functionality, adding the capability to monitor the "Stock Status" field on the Schedule Update form of a product.
+
 ### module-catalog-permissions
 Magento_CatalogPermissions feature allows to restrict the following permissions:
 - Browse categories
@@ -442,20 +456,26 @@ Magento_CatalogPermissions feature allows to restrict the following permissions:
 - Add to cart
 - Catalog search
 The permissions can be restricted for specific customer groups and guest users.
+
 ### module-catalog-rule
 Magento_CatalogRule module is responsible for one of the types of price rules in Magento. Catalog Rules are applied to products before they are added to the cart.
+
 ### module-catalog-rule-configurable 
 Magento_CatalogRuleConfigurable module is an extension of Magento_CatalogRule and Magento_ConfigurableProduct modules that handle catalog rule indexer for configurable product
 
 ### module-catalog-rule-sample-data
 Magento_CatalogRuleSampleData module consists of installation scripts and fixtures.
+
 ### module-catalog-rule-staging
 The Magento_CatalogRuleStaging module is a part of the staging functionality in Magento EE. It enables you to create new catalog rule updates or add new changes to the existing store updates. In other words, you can modify the catalog rules in updates. These updates are shown on the content dashboard.
+
 ### module-catalog-sample-data
 Magento_CatalogSampleData module consists of installation scripts and fixtures.
+
 ### module-catalog-search
 Magento_CatalogSearch module is an extension of Magento_Catalog module that allows to use search engine for product searching capabilities.
 The module implements Magento_Search library interfaces.
+
 ### module-catalog-staging
 The Magento_CatalogStaging module is a part of the staging functionality in Magento EE. It enables you to create new catalog updates or add new changes to the existing store updates. In other words, you can modify the category and product entity attributes in updates. These updates are shown on the content dashboard.
 
@@ -543,19 +563,24 @@ The following product attributes cannot be staged:
 ### module-catalog-url-rewrite-graph-ql
 **CatalogUrlRewriteGraphQl** provides type information for the GraphQl module
 to generate url rewrite fields for catalog and product information endpoints.
+
 ### module-catalog-url-rewrite-staging
 The Magento_CatalogUrlRewriteStaging module is a part of the staging functionality in Magento EE. It extends the Magento_CatalogUrlRewrite module.
+
 ### module-catalog-widget
 **CatalogWidget** contains various widgets that extend Catalog module functionality:
 - Product List widget provides widget that contains product list created using rule based filter.
+
 ### module-checkout
 Magento\Checkout module allows merchant to register sale transaction with the customer. Module implements consumer flow
 that includes such actions like adding products to cart, providing shipping and billing information and confirming
 the purchase.
+
 ### module-checkout-agreements
 Magento\CheckoutAgreements module provides the ability add web store agreement that customers must accept before purchasing
 products from store. The customer will need to accept the terms and conditions in the Order Review section of the
 checkout process to be able to place an order if Terms and Conditions functionality is enabled.
+
 ### module-checkout-staging
 The Magento_CheckoutStaging module is a part of the staging functionality in Magento EE.
 It extends the checkout functionality and enables you to use it in the staging preview mode.
@@ -577,15 +602,18 @@ The Wysiwyg UI component is a customizable and configurable TinyMCE4 editor.
 The default implementation has the following customizations:
 
 * Magento Media Library support
+
 ### module-cms-graph-ql
 **CmsGraphQl** provides type information for the GraphQl module
 to generate CMS fields for cms information endpoints.
+
 ### module-cms-sample-data
 Magento_CmsSampleData module consists of installation scripts and fixtures.
+
 ### module-cms-staging
 The Magento_CmsStaging module is a part of the staging functionality in Magento EE. It enables you to create new CMS Page and the CMS Block updates or add new changes to the existing store updates. In other words, you can modify the CMS Pages and the CMS Blocks in updates. These updates are shown on the content dashboard.
-###### CMS Pages
 
+###### CMS Pages
 You can stage the following parameters:
 
 - Enable/Disable CMS Page
@@ -611,6 +639,7 @@ The following parameters can be staged:
 - Identifier 
 - Store View
 - Content (WYSIWYG)
+
 ### module-cms-url-rewrite
 The Magento_CmsUrlRewrite module adds support for URL rewrite rules for CMS pages. See also Magento_UrlRewrite module. 
 
@@ -626,6 +655,7 @@ The Magento_Company module allows a merchant to create a company account and ass
 
 The module also implements roles and permissions for the company members. The company admin builds a hierarchical company structure (which consists of teams and users) in the storefront and assigns roles and permissions to the company members. This hierarchy allows the company admin to control user activity within the account. This hierarchy as well as roles and permissions are currently available in the storefront only. A merchant can only view the list of company members in Admin.
 A merchant can view and manage company profiles in Admin. A company's status controls what kind of access the company members have to the website. An admin user can also configure company-level emails and allow or disallow a company registration from the storefront. Also, this module adds a 'customer type' attribute to the customer in Admin: individual user, company member or company admin.
+
 ### module-company-credit
 The Magento_CompanyCredit module adds the "Payment on Account" payment method for B2B companies. It also allows the credit history to be viewed from both Admin and the storefront. 
 
@@ -644,6 +674,7 @@ to generate company fields for customer information endpoints.
 The Magento_CompanyPayment module allows a merchant to configure which payment methods are available for B2B companies.
 
 In Admin, the CompanyPayment module adds an additional panel (on the Company profile page and on the B2B Features page) where a merchant configures payment methods for companies. Payment methods can be configured on the store level or on the company level.
+
 ### module-config
 The Config module is designed to implement system configuration functionality.
 It provides mechanisms to add, edit, store and retrieve the configuration data
@@ -662,6 +693,7 @@ The Magento_ConfigurableNegotiableQuote module provides the following features:
 * Display configurable products in a negotiable quote.
  
 * Order configurable products from a negotiable quote.
+
 ### module-configurable-product
 Magento_ConfigurableProduct module introduces new product type in the Magento application called Configurable Product.
 This module is designed to extend existing functionality of Magento_Catalog module by adding new product type.
@@ -672,11 +704,14 @@ For example, store owner sells t-shirts in two colors and three sizes.
 ### module-configurable-product-graph-ql
 **ConfigurableProductGraphQl** provides type and resolver information for the GraphQl module
 to generate configurable product information.
+
 ### module-configurable-product-sales
 The Magento_ConfigurableProductSales module checks that the selected options of order item are still presented in
 Catalog. Returns true if the previously ordered item configuration is still available.
+
 ### module-configurable-product-staging
 The Magento_ConfigurableProductStaging module is a part of the staging functionality in Magento EE. It enables you to create new Configurable Product updates or add new changes to the existing store updates. In other words, you can modify the Configurable Products entity attributes in updates. These updates are shown on the content dashboard.
+
 ### module-configurable-requisition-list
 The Magento_ConfigurableRequisitionList module enables configurable products to be displayed in a requisition list in an B2B environment. This module extends Magento_RequisitionList and Magento_Configurable modules.
 
@@ -685,8 +720,10 @@ The Magento_ConfigurableRequisitionList module provides the following features:
 * Display configurable products in a requisition list.
 
 * Add configurable products to cart from a requisition list.
+
 ### module-configurable-sample-data
 Magento_ConfigurableSampleData module consists of installation scripts and fixtures.
+
 ### module-configurable-shared-catalog
 The Magento_ConfigurableSharedCatalog module enables configurable products to be added to a shared catalog in an B2B environment. This module extends Magento_SharedCatalog and Magento_Configurable modules.
 
@@ -705,7 +742,9 @@ Magento_Cookie module allows enabling and configuring HTTP cookie related settin
 ### module-cron
 Cron is a module that enables scheduling of jobs. Other modules can add cron jobs by including crontab.xml in their etc directory. The command "bin/magento cron:run" should be run periodically to trigger the Cron module to run its scheduled jobs.
 This module also allows administrators to tune cron options in Magento Admin.
+
 ### module-currency-symbol
+
 #### CurrencySymbol
 
 **CurrencySymbol** enables the creation of custom currencies and management of currency conversion rates.
@@ -737,12 +776,14 @@ For customer passwords, the module implements upgrading hashes.
 
 ### module-customer-analytics
 The Magento_CustomerAnalytics module configures data definitions for a data collection related to the Customer module entities to be used in [Advanced Reporting](http://devdocs.magento.com/guides/v2.2/advanced-reporting/modules.html).
+
 ### module-customer-balance
 The Magento_CustomerBalance module enables customers to have a non-monetary balance in store credits associated to their accounts.
 Store credit can be used by customers for shopping in the store and by the store administrator for making refunds.
 
 ### module-customer-balance-sample-data
 Magento_CustomerBalanceSampleData module consists of installation scripts and fixtures.
+
 ### module-customer-custom-attributes
 The Magento_CustomerCustomAttributes module handles user-defined customer and customer address attributes.
 User-defined attributes are the ones, which are created by a store administrator additionally to the default ones.
@@ -760,6 +801,7 @@ The Magento_CustomerImportExport module handles the import and export of the cus
 
 ### module-customer-sample-data
 Magento_CustomerSampleData module consists of installation scripts and fixtures.
+
 ### module-customer-segment
 The Magento_CustomerSegment module enables customer segmentation, allowing the creation of customer groups based on characteristics like shopping cart content, orders history, address, and so on.
 This allows dynamically targeting different content and promotions for those groups. Various components of a website, such as promotions and banners, can be personalized depending on the customer segment of a customer browsing the store at the moment.
@@ -778,6 +820,7 @@ Where mode can be one of the following:
  - production
 When switching to production mode, you can pass optional parameter skip-compilation to do not compile static files, CSS 
 and do not run the compilation process.
+
 ### module-developer
 The Magento_Developer module provides functionality to make it easier to develop in Magento 2.
 
@@ -841,15 +884,12 @@ This product option enables store owner to offers gift cards in Virtual, Physica
 When a gift card is ordered, a unique code is generated that is emailed to a customer for virtual gift cards, or exported for printing to physical gift cards. 
 This unique number can only be redeemed by one customer.
 
-
 ### module-gift-card-account
 The Magento_GiftCardAccount module is responsible for gift card balances, for both gift cards created by a store administrator and gift cards sold as gift card products.
-
 
 ### module-gift-card-graph-ql
 **GiftCardGraphQl** provides type and resolver information for the GraphQl module
 to generate giftcard product information.
-
 
 ### module-gift-card-import-export
 Magento_GiftCardImportExport module introduces import and export form GiftCard Product.
@@ -886,10 +926,13 @@ The Magento_GiftCardSharedCatalog module provides the following features:
 
 ### module-gift-card-staging
 The Magento_GiftCardStaging module is a part of the staging functionality in Magento EE. It enables you to create new GiftCard Product updates or add new changes to the existing store updates. In other words, you can modify the GiftCard Product entity attributes in updates. These updates are shown on the content dashboard.
+
 ### module-gift-message
 Magento\GiftMessage module allows to add a message to order or to each ordered item either on frontend or backend.
+
 ### module-gift-message-staging 
 The Magento_GiftMessageStaging module is a part of the staging functionality in Magento EE. It extends the Magento_GiftMessage module functionality to be used in the Schedule Update form.
+
 ### module-gift-registry
 Magento\GiftRegistry module that allows to create sets of gifts specified for specific holiday(Birthday, Wedding, etc).
 It resembles wishlist, but there are differences. You can describe Gift Registry as a wishlist of products you would
@@ -897,14 +940,18 @@ like to share with other people so they could purchase anything from the list. C
 address to a gift registry, thus anyone who follows this list with a purchase would automatically have that shipping
 address set by default during checkout. Customer can manage his gift registries in his profile. The gift registry can be
 shared or stay private. Every gift registry has system attributes and can have custom attributes.
+
 ### module-gift-registry-sample-data
 Magento_GiftRegistrySampleData module consists of installation scripts and fixtures.
+
 ### module-gift-wrapping
 Magento\GiftWrapping module  provides functionality that allows customer to add gift wrapping to the items purchased
 from the store as gifts and charge it individually. Magento\GiftWrapping module extends functionality of gift
 messages by combining gift messages with gift wrapping functionality
+
 ### module-gift-wrapping-staging 
 The Magento_GiftWrappingStaging module is a part of the staging functionality in Magento EE. It allows to stage value of 'Allow Gift Wrapping' flag and price of the wrapping for each product update.
+
 ### module-google-adwords
 GoogleAdwords is a module designed for integration of Google Adwords service.
 
@@ -933,6 +980,7 @@ GraphQL services and resolves request data based on the generated schema. It als
 for the client to read.
 
 ### module-grouped-import-export 
+
 ### module-grouped-product
 Magento_GroupedProduct module provides ability to offer several standalone products for sale as a group on the same Product Detail page.
 It can offer variations of a product, or group them by season or theme to create a coordinated set.
@@ -946,12 +994,13 @@ to generate grouped product information.
 
 ### module-grouped-product-sample-data
 Magento_GroupedProductSampleData module consists of installation scripts and fixtures.
+
 ### module-grouped-product-staging 
 The Magento_GroupedProductStaging module is a part of the staging functionality in Magento EE. It enables you to stage products assigned to grouped product.
 
 ##### Implementation details
-
 The Magento_GroupedProductStaging module extends functionality of the Magento_GroupedProduct to be used in staging. It adds Grouped Products field set to the Schedule Update form of a product.
+
 ### module-grouped-requisition-list
 The Magento_GroupedRequisitionList module enables grouped products to be displayed in a requisition list in an B2B environment. This module extends Magento_RequisitionList and Magento_Grouped modules.
 
@@ -988,6 +1037,7 @@ It allows:
 
 There are 2 modes of the Indexers: "Update on save" and "Update by schedule".
 Manual full reindex can be performed via console by running `php -f bin/magento indexer:reindex` console command.
+
 ### module-instant-purchase
 Instant Purchase feature allows the Customer to place the order in seconds without going through full checkout. Once clicked, system places the order using default shipping and billing addresses and stored payment method. Order is placed and customer gets confirmation message in notification area.
 
@@ -996,6 +1046,7 @@ Prerequisites to display the Instant Purchase button:
 2. Customer is logged in
 3. Customer has default shipping and billing address defined
 4. Customer has valid stored payment method with instant purchase support
+
 ### module-integration
 **Integration** enables third-party services to call the Web API by using access tokens.
 It provides an admin UI that enables manual creation of integrations. Extensions can also provide a configuration
@@ -1173,6 +1224,7 @@ The Magento_MediaStorage module implements functionality related with upload med
 **MessageQueue** provides support of Advanced Message Queuing Protocol
 
 ### module-msrp 
+
 ### module-msrp-sample-data 
 Magento_MsrpSampleData module consists of installation scripts and fixtures.
 
