@@ -18,30 +18,36 @@ ECE-Tools is a set of scripts and tools designed to manage and deploy Cloud proj
 ### framework-message-queue 
    This component is designed to provide Message Queue Framework 
 ### inventory-composer-installer 
-# Magento Inventory Composer Installer
-
 Magento Inventory Composer Installer helps ot install modules that belongs to Magento [Multi Source Inventory](https://github.com/magento-engcom/msi/wiki) community project.
 
 To enable simple **upgrade** for existing Magento installations MSI modules will be disabled by default. To enable them please use `magento module:enable` command. For more information please reference to [Magento Developers Documentation](https://devdocs.magento.com/guides/v2.2/install-gde/install/cli/install-cli-subcommands-enable.html).
 
 For fresh Magento **installation** this plugin won't take effect so MSI modules will preserve default behavior. Thereby, they will be installed and enabled if other not configured explicitly.
+
 ### language-de_de
 German (Germany) language
+
 ### language-en_us 
 English (United States) language
+
 ### language-es_es 
 Spanish (Spain) language
+
 ### language-fr_fr 
 French (France) language
+
 ### language-nl_nl
 Dutch (Netherlands) language
+
 ### language-pt_br 
 Portuguese (Brazil) language
+
 ### language-zh_hans_cn 
 Chinese (China) language
-### magento-composer-installer
 
+### magento-composer-installer
   This is a fork of the [Magento Composer Installer](https://github.com/magento-hackathon/magento-composer-installer) repo that provides support for Magento 2 components (modules, themes, language packages, libraries and components).
+
 ##### Usage
 In the component's `composer.json`, specify:
 *   `type`, type of Magento 2 component.
@@ -50,6 +56,7 @@ In the component's `composer.json`, specify:
     **Note**:
     * `extra/map` is required only if your component needs to be moved to a location other than `<Magento root>/vendor`. Otherwise, omit this section.
     * `extra/chmod` is required only if you need to set specific permissions for files.
+    
 ##### Supported Components
 The following list explains the use of `type` in `composer.json`.
 
